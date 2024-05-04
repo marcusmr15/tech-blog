@@ -1,12 +1,12 @@
-# The Tech Blog
+# The Weekly Scene (Tech Blog)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 ## Description
 
-This webpage titled _"The Tech Blog"_, is a CMS-style blog site that empowers developers from all backgrounds to share their knowledge, experiences, and perspectives with others in a global audience, thus fostering meaningful interactions and collaborations within the tech community.
+This webpage titled _"The Weekly Scene"_, is a CMS-style blog site that provides cinephiles and movie enthusiasts alike from all backgrounds to share their knowledge, experiences, and perspectives with others in a global audience, thus fostering meaningful discussions, recommendations and analyses within the seventh-art community.
 
-[Click here to view the live webpage!](placeholderLink) 📑
+[Click here to view the live webpage!](placeholderLink) 🍿
 
 ## Table of Contents
 
@@ -28,10 +28,11 @@ N/A.
 
 ## Credits
 
-This project was created with the help of:
+This project was created by [Marcos Munoz](https://github.com/marcusmr15) with the aid of:
+
 * The `ChatGPT` AI developed by __Open AI__.
 * The `Xpert Learning Assistant` AI developed by __edX__.
-
+* The [Thomas-Model-View-Controller-MVC-Tech-Blog](https://github.com/ThomasCalle/Thomas-Model-View-Controller-MVC-Tech-Blog) repository by [Thomas Calle](https://github.com/ThomasCalle).
 
 ## License
 
