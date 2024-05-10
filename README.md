@@ -1,12 +1,12 @@
-# The Weekly Scene (Tech Blog)
+# The Weekly Log (Tech Blog)
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 ## Description
 
-This webpage titled _"The Weekly Scene"_, is a CMS-style blog site that provides cinephiles and movie enthusiasts alike from all backgrounds to share their knowledge, experiences, and perspectives with others in a global audience, thus fostering meaningful discussions, recommendations and analyses within the seventh-art community.
+This webpage titled _"The Weekly Log"_, is a CMS-style blog site that provides junior and senior developers alike from all backgrounds to share their knowledge, experiences, and tips of the all coding-related topic  with others in a global audience, thus fostering meaningful feedback, recommendations and analyses within the tech community.
 
-[Click here to view the live webpage!](placeholderLink) 🍿
+[Click here to view the live webpage!](placeholderLink)  🌐
 
 ## Table of Contents
 
