@@ -1,0 +1,35 @@
+:root {
+    --fontPlex: "IBM Plex Mono", monospace;
+    --primaryColor: #528ac5;
+    --secondaryColor: #6C757D;
+    --accentColor: #28A745;
+    --backgroundColor: #cde2f8;
+    --textColor: #343A40;
+    --highlightColor: #d3b24e;
+}
+
+body {
+    font-family: var(--fontPlex);
+    background-color: var(--secondaryColor);
+    color: var(--textColor);
+}
+
+#postCard {
+    border: 3px solid var(--primaryColor);
+    margin: 60px;
+}
+
+#postTitle {
+    background-color: var(--primaryColor);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+#postContent {
+    padding: 15px;
+    text-align: justify;
+    color: white;
+}
