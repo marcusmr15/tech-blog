@@ -12,6 +12,14 @@ body {
     font-family: var(--fontPlex);
     background-color: var(--secondaryColor);
     color: var(--textColor);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.content {
+    flex: 1;
 }
 
 #anchors {
@@ -68,7 +76,7 @@ body {
 
 .anchorBtn {
     transition: transform 0.05s;
-    transition: ease-in-out 0.1s;
+    transition: ease-in-out 0.15s;
 }
 
 .anchorBtn:hover {
@@ -91,4 +99,12 @@ body {
 
 .loginoutBtn:active {
     transform: scale(0.95);
+}
+
+footer {
+    background-color: var(--primaryColor);
+    text-align: center;
+    color: var(--backgroundColor);
+    padding: 10px;
+    margin-top: auto;
 }
