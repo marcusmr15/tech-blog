@@ -1,31 +1,18 @@
-<!--?--> This is the homePage route -->
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <!--! CSS links -->
-    <link rel="stylesheet" href="/public/css/reset.css">
-    <link rel="stylesheet" href="/public/css/homePage.css">
-    <!-- Google font CDN -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
-</head>
-
-<body>
-    <div id="postCard">
-        <div id="postTitle">
-            <h2>[Title]</h2>
-            <p>Posted by [Rick Sanchez] on [05/22/2024]</p>
-        </div>
-        <div id="postContent">
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat autem libero tempora earum! Voluptatem, quasi officiis dicta esse dolore magni suscipit in at! Minus placeat possimus quos dolores sit ab? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi fuga autem a quos soluta! Maiores facilis dicta quibusdam! Ea laborum dignissimos asperiores itaque, distinctio voluptatem similique perferendis deleniti dolore eos? Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores quae sed reprehenderit architecto. Vitae exercitationem inventore minus praesentium, tempore distinctio asperiores, harum labore sed quo amet quaerat ipsam quam cum.</p>
-        </div>
+<main class="container mt-5">
+    <div class="row">
+      <div class="col-12">
+        <h1 class="mb-4">Dashboard</h1>
+        <a href="/newpost" class="btn btn-primary">Create a New Blog Post</a>
+      </div>
     </div>
-    
-    <!--! JavaScript link -->
-    <!-- <script src="./assets/js/script.js"></script> -->
-</body>
-
-</html>
+    <br>
+    <h1 class="mb-4">Chess Blog Contributions:</h1>
+    {{#each posts}}
+      <div class="post-container post mb-3">
+        <h2><a href="/post/{{id}}" class="text-decoration-none text-reset">{{title}}</a></h2>
+        <p>Created by: {{user.username}} | Date: {{format_date createdAt}}</p>
+        <a href="/editpost/{{id}}" class="btn btn-warning">Edit Post</a>
+        <button class="btn btn-danger delete-post" data-post-id="{{id}}">Delete</button>
+      </div>
+    {{/each}}
+  </main>
