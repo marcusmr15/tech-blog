@@ -13,7 +13,8 @@ router.get("/", async (req, res) => {
     // Convert post data to plain JavaScript object
     const posts = postData.map((post) => post.get({ plain: true }));
     // Render homepage template with posts and login status
-    res.render("homepage", {
+    res.render('homepage', {
+      layout: 'main', 
       posts,
       logged_in: req.session.logged_in,
     });
@@ -40,6 +41,7 @@ router.get("/post/:id", withAuth, async (req, res) => {
     const post = postData.get({ plain: true });
     // Render post template with post data and login status
     res.render("post", {
+      layout: "main", // Specify the layout file name here without extension
       ...post,
       logged_in: req.session.logged_in,
     });
@@ -61,6 +63,7 @@ router.get("/dashboard", withAuth, async (req, res) => {
     const posts = postData.map((post) => post.get({ plain: true }));
     // Render dashboard template with posts and login status
     res.render("dashboard", {
+      layout: "main", // Specify the layout file name here without extension
       posts,
       logged_in: req.session.logged_in,
     });
@@ -77,7 +80,7 @@ router.get("/login", (req, res) => {
     res.redirect("/dashboard");
     return;
   }
-  res.render("login");
+  res.render("login", { layout: "main" }); // Specify the layout file name here without extension
 });
 
 // Route to render signup page
@@ -87,14 +90,14 @@ router.get("/signup", (req, res) => {
     res.redirect("/dashboard");
     return;
   }
-  res.render("signup");
+  res.render("signup", { layout: "main" }); // Specify the layout file name here without extension
 });
 
 // Route to render new post page
 router.get("/newpost", (req, res) => {
   // Redirect to login page if not logged in
   if (req.session.logged_in) {
-    res.render("newpost");
+    res.render("newpost", { layout: "main" }); // Specify the layout file name here without extension
     return;
   }
   res.redirect("/login");
@@ -117,6 +120,7 @@ router.get("/editpost/:id", async (req, res) => {
     const post = postData.get({ plain: true });
     // Render edit post template with post data and login status
     res.render("editpost", {
+      layout: "main", // Specify the layout file name here without extension
       ...post,
       logged_in: req.session.logged_in,
     });
@@ -128,3 +132,4 @@ router.get("/editpost/:id", async (req, res) => {
 
 // Export the router
 module.exports = router;
+
