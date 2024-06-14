@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const session = require("express-session");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
@@ -19,7 +20,7 @@ const hbs = exphbs.create({
 
 // Session configuration
 const sess = {
-  secret: 'Super secret secret',
+  secret: process.env.SESSION_SECRET,
   cookie: {
     // Set cookie expiration (in milliseconds)
     maxAge: 24 * 60 * 60 * 1000 // 24 hours
