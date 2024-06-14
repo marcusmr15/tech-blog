@@ -80,5 +80,14 @@ router.post("/logout", (req, res) => {
   }
 });
 
+// Route to check if the user is logged in
+router.get("/check-session", (req, res) => {
+  if (req.session.logged_in) {
+    res.json({ logged_in: true });
+  } else {
+    res.json({ logged_in: false });
+  }
+});
+
 // Export the router
 module.exports = router;
