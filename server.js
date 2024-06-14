@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 3001;
 // Create Handlebars instance with custom helpers and configuration
 const hbs = exphbs.create({
   helpers,
-  layoutsDir: `${__dirname}/views/layouts`, // Corrected path to layouts directory
+  layoutsDir: `${__dirname}/views/layouts`, // Path to layouts directory
   defaultLayout: 'main', // Name of main layout file without extension
   extname: '.handlebars' // File extension of the templates
 });
@@ -35,10 +35,12 @@ const sess = {
 app.use(session(sess));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+// Serve static files from the "public" directory
 app.use(express.static("public"));
 
-// Set view engine
-app.engine('handlebars', hbs.engine); // Use the created Handlebars instance
+// Set Handlebars as the template engine
+app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 // Routes
@@ -48,4 +50,3 @@ app.use(routes);
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log(`Listening on PORT ${PORT}`));
 });
-

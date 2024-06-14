@@ -100,11 +100,3 @@ body {
 .loginoutBtn:active {
     transform: scale(0.95);
 }
-
-footer {
-    background-color: var(--primaryColor);
-    text-align: center;
-    color: var(--backgroundColor);
-    padding: 10px;
-    margin-top: auto;
-}
