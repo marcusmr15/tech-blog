@@ -23,7 +23,6 @@ body {
 }
 
 #anchors {
-    /* background-color: green; */
     display: flex;
     padding: 10px;
     font-size: 150%;
@@ -43,32 +42,32 @@ body {
     box-shadow: 10px 10px #746a4e;
 }
 
-.space {
+.spaceMain {
     width: 40px;
 }
 
-#logout {
+#logoutId {
     background-color: rgba(202, 112, 70, 0.588);
     border-radius: 5px;
     padding: 5px;
     transition: ease-out 0.2s;
 }
 
-#logout:hover {
+#logoutId:hover {
     background-color: rgb(207, 80, 20);
     color: white;
     transition: ease-in 0.1s;
 }
 
 
-#login {
+#loginId {
     background-color: rgba(124, 162, 75, 0.595);
     border-radius: 5px;
     padding: 5px;
     transition: ease-out 0.2s;
 }
 
-#login:hover {
+#loginId:hover {
     background-color: rgb(109, 185, 16);
     color: white;
     transition: ease-in 0.1s;
@@ -89,14 +88,19 @@ body {
     transform: scale(0.95);
 }
 
-.loginoutBtn {
+.loginoutBtns {
+    cursor: pointer;
     transition: transform 0.05s;
 }
 
-.loginoutBtn:hover {
+.loginoutBtns:hover {
     cursor: pointer;
 }
 
-.loginoutBtn:active {
+.loginoutBtns:active {
     transform: scale(0.95);
+}
+
+.hideMain {
+    display: none;
 }
