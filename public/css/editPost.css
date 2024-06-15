@@ -1,0 +1,111 @@
+:root {
+    --editCardColor: rgb(114, 61, 114);
+    --editWhiteColor: rgb(214, 214, 211);
+}
+
+
+.editPostCard {
+    border: 4px solid var(--editCardColor);
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    border-radius: 10px;
+}
+
+.titleEditPost {
+    background-color: var(--editCardColor);
+    color: var(--editWhiteColor);
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+h3 {
+    width: 65%;
+    text-align: justify;
+}
+
+.editPostText {
+    background-color: var(--editWhiteColor);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+textarea {
+    font-family: var(--fontPlex);
+    height: 100px;
+    width: 100%;
+    resize: none;
+    padding: 10px;
+}
+
+.EditTextareaContent {
+    height: 250px;
+}
+
+.epSpace {
+    height: 10px;
+
+}
+
+button {
+    width: fit-content;
+    border-radius: 5px;
+    padding: 10px;
+    transition: transform 0.2s;
+    transition: ease-in-out 0.15s;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+
+}
+
+button:hover {
+    cursor: pointer;
+    color: white;
+    padding-left: 17px;
+    padding-right: 17px;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+#updateBtn:hover{
+    background-color: rgb(121, 194, 139);
+}
+
+#deleteBtn:hover{
+    background-color: rgb(194, 121, 121);
+}
+
+#cancelBtn:hover{
+    background-color: rgb(121, 166, 194);
+}
+
+@media (max-width: 720px) {
+    .titlePostCard {
+        flex-direction: column;
+    }
+    h3 {
+        max-width: none;
+        text-align: center;
+    }
+    .titleCreatePost {
+        text-align: start; 
+    }
+    .buttons{
+        flex-direction: column;
+        align-items: center;
+    }
+  }

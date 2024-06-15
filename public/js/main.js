@@ -59,3 +59,19 @@ if (logoutBtn) {
     }
   });
 }
+
+// Variables to redirect to either homepage or dashboard views
+const redirectToHomepage = () => {
+  document.location.replace('/');
+};
+const redirectToDashboard = () => {
+  document.location.replace('/dashboard');
+};
+const redirectToNewPost = () => {
+  document.location.replace('/newPost');
+};
+  
+// Event listeners for redirect functions
+document.querySelector('#homeId').addEventListener('click', redirectToHomepage);
+document.querySelector('#dashboardId').addEventListener('click', redirectToDashboard);
+document.querySelector('#newPostId').addEventListener('click', redirectToNewPost);

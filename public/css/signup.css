@@ -57,6 +57,17 @@ input::placeholder {
     transform: scale(0.92);
 }
 
+#signupBox{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.spaceLoginBox{
+    width: 10px;
+}
+
 button {
     width: fit-content;
     align-self: center;
