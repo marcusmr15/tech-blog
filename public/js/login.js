@@ -23,7 +23,7 @@ const LoginFormHandler = async (event) => {
                 // If the request was unsuccessful, display an error message
                 const errorMessage = document.querySelector('#errorMessage');
                 errorMessage.classList.remove('hide');
-                errorMessage.classList.add('show');
+                // errorMessage.classList.add('show');
             }
         } catch (err) {
             console.error('Login failed:', err);

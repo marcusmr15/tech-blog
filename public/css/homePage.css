@@ -1,35 +1,66 @@
 :root {
-    --fontPlex: "IBM Plex Mono", monospace;
-    --primaryColor: #528ac5;
-    --secondaryColor: #6C757D;
-    --accentColor: #28A745;
-    --backgroundColor: #cde2f8;
-    --textColor: #343A40;
-    --highlightColor: #d3b24e;
+    --cardColor: rgb(114, 61, 114);
+    --whiteColor: rgb(214, 214, 211);
 }
 
-body {
-    font-family: var(--fontPlex);
-    background-color: var(--secondaryColor);
-    color: var(--textColor);
+
+.postCard {
+    border: 4px solid var(--cardColor);
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    border-radius: 10px;
 }
 
-#postCard {
-    border: 3px solid var(--primaryColor);
-    margin: 40px;
-}
-
-#postTitle {
-    background-color: var(--primaryColor);
+.titlePostCard {
+    background-color: var(--cardColor);
+    color: var(--whiteColor);
+    padding: 10px;
     display: flex;
-    flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    padding: 10px;
 }
 
-#postContent {
-    padding: 15px;
+h3 {
+    width: 65%;
     text-align: justify;
-    color: white;
 }
+
+/* .titleSpace {
+    width: 20%;
+} */
+
+.userData {
+    max-width: 30%;
+    text-align: end;
+    color: rgb(237, 197, 144);
+}
+
+h3, .userData {
+    overflow-wrap: break-word; 
+}
+
+.postCardText {
+    background-color: var(--whiteColor);
+    padding: 10px;
+    display: flex;
+    text-align: justify;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    overflow-y: auto; /* Allow vertical scrolling within the card */
+    max-height: 200px;
+}
+
+@media (max-width: 720px) {
+    .titlePostCard {
+        flex-direction: column;
+    }
+    h3, .userData {
+        max-width: none;
+        text-align: center;
+    }
+    .postCardText {
+        text-align: start; 
+    }
+  }

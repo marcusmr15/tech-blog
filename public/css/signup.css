@@ -1,6 +1,6 @@
 h2 {
     text-align: center;
-    margin-top: 50px;
+    margin-top: 25px;
     color: var(--backgroundColor);
 }
 
@@ -78,9 +78,22 @@ button:active {
     transform: scale(0.95);
 }
 
+#errorMessageSignup {
+    text-align: center;
+    background-color: red;
+    padding: 20px;
+    font-size: 130%;
+    color: white;
+    margin-top: 20px;
+}
+
+.hide {
+    display: none;
+}
+
 @media (max-width: 720px) {
     #signupCard {
-        height: 350px;
+        height: 280px;
         font-size: 130%;
     }
-  }
+}

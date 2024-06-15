@@ -1,6 +1,6 @@
 h2 {
     text-align: center;
-    margin-top: 50px;
+    margin-top: 25px;
     color: var(--backgroundColor);
 }
 
@@ -93,7 +93,7 @@ button:active {
 
 @media (max-width: 720px) {
     #loginCard {
-        height: 300px;
+        height: 230px;
         font-size: 130%;
     }
-  }
+}
