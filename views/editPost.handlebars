@@ -1,28 +1,28 @@
 <head>
-    <link rel="stylesheet" href="/css/newPost.css">
+    <link rel="stylesheet" href="/css/editPost.css">
 </head>
 
 <body>
 
-    <div class="createPostCard">
-        <div class="titleCreatePost">
+    <div class="editPostCard">
+        <div class="titleEditPost">
             <h3>Edit Post</h3>
             <div class="titleSpace"></div>
         </div>
-        <div class="CreatePostText">
+        <div class="editPostText">
             <p>Title</p>
-            <textarea></textarea>
-            <div class="cpSpace"></div>
+            <textarea>{{title}}</textarea>
+            <div class="epSpace"></div>
             <p>Content</p>
-            <textarea class="textareaContent"></textarea>
+            <textarea class="EditTextareaContent">{{content}}</textarea>
             <div class="buttons">
-                <button>Update</button>
-                <button>Delete</button>
-                <button>Cancel</button>
+                <button id="updateBtn">Update</button>
+                <button id="deleteBtn">Delete</button>
+                <button id="cancelBtn">Cancel</button>
             </div>
         </div>
     </div>
 
     <!--! JavaScript link -->
-    <script src="/js/newPost.js"></script>
+    <script src="/js/editPost.js"></script>
 </body>
