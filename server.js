@@ -22,7 +22,6 @@ const hbs = exphbs.create({
 const sess = {
   secret: process.env.SESSION_SECRET,
   cookie: {
-    // Set cookie expiration (in milliseconds)
     maxAge: 24 * 60 * 60 * 1000 // 24 hours
   },
   resave: false,
@@ -49,5 +48,13 @@ app.use(routes);
 
 // Sync Sequelize models and start the server
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log(`Listening on PORT ${PORT}`));
+  app.listen(PORT, () => {
+    console.log(`Server is listening on http://localhost:${PORT}`);
+  });
+});
+
+// Error handling for session initialization
+app.use(function (err, req, res, next) {
+  console.error(err.stack);
+  res.status(500).send('Something broke!');
 });
