@@ -1,0 +1,23 @@
+<head>
+    <link rel="stylesheet" href="/css/dashboard.css">
+</head>
+
+<body>
+
+    <h2 class="mb-4">Contributions:</h2>
+    {{#each posts}}
+    <div class="post-container post mb-3">
+        <h2><a href="/post/{{id}}" class="text-decoration-none text-reset">{{title}}</a></h2>
+        <p>Created by: {{user.username}} | Date: {{format_date createdAt}}</p>
+        <a href="/editpost/{{id}}" class="btn btn-warning">Edit Post</a>
+        <button class="btn btn-danger delete-post" data-post-id="{{id}}">Delete</button>
+        </div>
+    {{/each}}
+
+    <div id="errorMessageSignup" class="hide">
+        <p>Your password needs to be at least <b>8</b> characters long 🧐 </p>
+    </div>
+
+    <!--! JavaScript link -->
+    <script src="/js/dashboard.js"></script>
+</body>

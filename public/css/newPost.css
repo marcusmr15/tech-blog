@@ -1,0 +1,90 @@
+:root {
+    --cardColor: rgb(114, 61, 114);
+    --whiteColor: rgb(214, 214, 211);
+}
+
+
+.createPostCard {
+    border: 4px solid var(--cardColor);
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    border-radius: 10px;
+}
+
+.titleCreatePost {
+    background-color: var(--cardColor);
+    color: var(--whiteColor);
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+h3 {
+    width: 65%;
+    text-align: justify;
+}
+
+.CreatePostText {
+    background-color: var(--whiteColor);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+textarea {
+    font-family: var(--fontPlex);
+    height: 100px;
+    width: 100%;
+    resize: none;
+    padding: 10px;
+}
+
+.textareaContent {
+    height: 250px;
+}
+
+.cpSpace {
+    height: 10px;
+
+}
+
+button {
+    width: fit-content;
+    align-self: center !important;
+    border-radius: 5px;
+    padding: 10px;
+    transition: transform 0.2s;
+    transition: ease-in-out 0.15s;
+    margin-top: 10px;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: rgb(194, 121, 194);
+    color: white;
+    padding-left: 17px;
+    padding-right: 17px;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+@media (max-width: 720px) {
+    .titlePostCard {
+        flex-direction: column;
+    }
+    h3 {
+        max-width: none;
+        text-align: center;
+    }
+    .titleCreatePost {
+        text-align: start; 
+    }
+  }

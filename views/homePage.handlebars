@@ -1,25 +1,24 @@
-{{!-- Extend the main layout --}}
-{{> layout/main }}
+<head>
+    <link rel="stylesheet" href="/css/homePage.css">
+</head>
 
-{{!-- Head section with specific CSS for the homepage --}}
-{{#*inline "head"}}
-<link rel="stylesheet" href="/public/css/homePage.css">
-{{/inline}}
-
-{{!-- Begin content block --}}
-{{#*inline "body"}}
-<div id="postsContainer">
+<body>
     {{#each posts}}
-    <div class="postCard">
-        <div class="postTitle">
-            <h2>{{this.title}}</h2>
-            <p>Posted by {{this.user.username}} on {{format_date this.createdAt}}</p>
+
+        <div class="postCard">
+            <div class="titlePostCard">
+                <h3>{{title}}</h3>
+                <div class="titleSpace"></div>
+                <p class="userData">by {{user.username}} on {{format_date createdAt}}</p>
+            </div>
+            <div class="postCardText">
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quas eaque libero iure, assumenda earum est harum reprehenderit inventore. Nam consequuntur eius, repellendus ducimus quasi incidunt quo! Quasi porro qui non.</p>
+            </div>
         </div>
-        <div class="postContent">
-            <p>{{this.content}}</p>
-        </div>
-    </div>
     {{/each}}
-</div>
-{{/inline}}
+
+
+    <!--! JavaScript link -->
+    <script src="/js/homePage.js"></script>
+</body>
     

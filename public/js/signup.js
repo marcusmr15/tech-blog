@@ -17,7 +17,9 @@ const signupFormHandler = async (event) => {
         if (response.ok) {
           document.location.replace('/'); // Redirect to homepage after successful signup
         } else {
-          alert('Failed to sign up.');
+            const errorMessage = document.querySelector('#errorMessageSignup');
+            errorMessage.classList.remove('hide');
+            // errorMessage.classList.add('show');
         }
       } catch (err) {
         console.error('Error signing up:', err);
