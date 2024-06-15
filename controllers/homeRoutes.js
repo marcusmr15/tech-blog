@@ -13,7 +13,7 @@ router.get("/", async (req, res) => {
     // Convert post data to plain JavaScript object
     const posts = postData.map((post) => post.get({ plain: true }));
     // Render homepage template with posts and login status
-    res.render('homepage', {
+    res.render('homePage', {
       layout: 'main', 
       posts,
       logged_in: req.session.logged_in,
@@ -94,17 +94,17 @@ router.get("/signup", (req, res) => {
 });
 
 // Route to render new post page
-router.get("/newpost", (req, res) => {
+router.get("/newPost", (req, res) => {
   // Redirect to login page if not logged in
   if (req.session.logged_in) {
-    res.render("newpost", { layout: "main" }); // Specify the layout file name here without extension
+    res.render("newPost", { layout: "main" }); // Specify the layout file name here without extension
     return;
   }
   res.redirect("/login");
 });
 
 // Route to render the edit post page
-router.get("/editpost/:id", withAuth, async (req, res) => {
+router.get("/editPost/:id", withAuth, async (req, res) => {
   try {
     // Find post by ID with associated username and comments with associated usernames
     const postData = await Post.findByPk(req.params.id, {
@@ -126,7 +126,7 @@ router.get("/editpost/:id", withAuth, async (req, res) => {
     const post = postData.get({ plain: true });
 
     // Render edit post template with post data and login status
-    res.render("editpost", {
+    res.render("editPost", {
       layout: "main", // Specify the layout file name here without extension
       post,
       logged_in: req.session.logged_in,
