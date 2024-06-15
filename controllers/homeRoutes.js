@@ -103,8 +103,8 @@ router.get("/newpost", (req, res) => {
   res.redirect("/login");
 });
 
-// Route to render edit post page
-router.get("/editpost/:id", async (req, res) => {
+// Route to render the edit post page
+router.get("/editpost/:id", withAuth, async (req, res) => {
   try {
     // Find post by ID with associated username and comments with associated usernames
     const postData = await Post.findByPk(req.params.id, {
@@ -116,16 +116,24 @@ router.get("/editpost/:id", async (req, res) => {
         },
       ],
     });
+
+    if (!postData) {
+      res.status(404).json({ message: "No post found with this id!" });
+      return;
+    }
+
     // Convert post data to plain JavaScript object
     const post = postData.get({ plain: true });
+
     // Render edit post template with post data and login status
     res.render("editpost", {
       layout: "main", // Specify the layout file name here without extension
-      ...post,
+      post,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
     // If there is an error, return 500 status code and error message
+    console.log(err);
     res.status(500).json(err);
   }
 });

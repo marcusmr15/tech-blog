@@ -1,0 +1,50 @@
+.dashboardTitle{
+    font-size: 150%;
+    color: rgb(214, 214, 211);
+    text-align: center;
+    margin-top: 2%;
+}
+
+.userDashboards{
+    background-color: rgb(116, 82, 116);
+    color: rgb(214, 214, 211);
+    margin: 2% 7%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    text-align: justify;
+    cursor: pointer;
+    transition: transform 0.2s;
+    transition: ease-in-out 0.15s;
+}
+
+h2{
+    max-width: 85%;
+}
+
+.dateDashboard{
+    color: rgb(237, 197, 144);
+}
+
+.userDashboards:hover{
+    background-color: rgb(159, 112, 159);
+    margin-left: 6%;
+    margin-right: 6%;
+}
+
+.userDashboards:active {
+    transform: scale(0.97);
+}
+
+@media (max-width: 720px) {
+    .userDashboards{
+        flex-direction: column;
+        text-align: center;
+    }
+    h2{
+        width: 100%;
+        overflow-wrap: break-word; 
+    }
+  }
