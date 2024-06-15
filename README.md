@@ -23,7 +23,7 @@ N/A.
 
 1. Open the webpage link provided in either the [Description](#description) section of this `README.md` file
 2. You will be directed to the _login_ screen
-3. Placeholder
+3. Placeholder text
 4. 
 
 ## Credits
