@@ -6,6 +6,7 @@
 
 .postCard {
     border: 4px solid var(--cardColor);
+    background-color: var(--cardColor);
     margin-left: 10%;
     margin-right: 10%;
     margin-top: 3%;
@@ -42,11 +43,55 @@ h3, .userData {
     padding: 10px;
     display: flex;
     text-align: justify;
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
     overflow-y: auto; /* Allow vertical scrolling within the card */
     max-height: 200px;
 }
+
+.postCardCommentsBox{
+    overflow-y: auto; /* Allow vertical scrolling within the card */
+    max-height: 200px;
+
+}
+
+.postCardComments{
+    padding: 5px;
+    background-color: wheat;
+    margin-top: 10px;
+    margin-left: 15%;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+#addCommentBtnBox{
+    margin: 10px;
+}
+
+.homeSpace{
+    width: 10px;
+}
+
+#addCommentBt{
+    cursor: pointer;
+    text-align: end;
+    border: 2px solid black;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: white;
+    width: fit-content;
+    transition: transform 0.1s;
+    transition: ease-in-out 0.2s;
+}
+
+#addCommentBt:hover{
+    padding-left: 9px;
+    padding-right: 9px;
+    background-color: var(--highlightColor);
+}
+
+#addCommentBt:active{
+    transform: scale(0.92);
+}
+
 
 @media (max-width: 720px) {
     .titlePostCard {
