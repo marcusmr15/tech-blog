@@ -14,6 +14,21 @@
             <div class="postCardText">
                 <p>{{content}}</p>
             </div>
+            {{#each comments}}
+
+                <div class="postCardCommentsBox">
+                    <div class="postCardComments">
+                        <p>{{user.username}} on {{format_date createdAt}}</p>
+                        <p><i>{{comment_text}}</i></p>
+                    </div>
+                </div>
+            {{/each}}
+
+            
+            <div id="addCommentBtnBox">
+                <div class="homeSpace"></div>
+                <p id="addCommentBt">Add Comment +</p>
+            </div>
         </div>
     {{/each}}
 

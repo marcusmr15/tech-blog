@@ -10,8 +10,10 @@ router.get("/", async (req, res) => {
     const postData = await Post.findAll({
       include: [{ model: User, attributes: ["username"] }],
     });
+    
     // Convert post data to plain JavaScript object
     const posts = postData.map((post) => post.get({ plain: true }));
+    
     // Render homepage template with posts and login status
     res.render('homePage', {
       layout: 'main', 
@@ -19,8 +21,9 @@ router.get("/", async (req, res) => {
       logged_in: req.session.logged_in,
     });
   } catch (err) {
-    // If there is an error, return 500 status code and error message
-    res.status(500).json(err);
+    // Handle error if data retrieval fails
+    console.error('Error fetching posts:', err);
+    res.status(500).json(err); // Return JSON error response or handle differently
   }
 });
 
@@ -37,8 +40,15 @@ router.get("/post/:id", withAuth, async (req, res) => {
         },
       ],
     });
+    
+    if (!postData) {
+      // Handle case where post is not found
+      return res.status(404).json({ message: "No post found with this id!" });
+    }
+    
     // Convert post data to plain JavaScript object
     const post = postData.get({ plain: true });
+    
     // Render post template with post data and login status
     res.render("post", {
       layout: "main", // Specify the layout file name here without extension
@@ -46,8 +56,9 @@ router.get("/post/:id", withAuth, async (req, res) => {
       logged_in: req.session.logged_in,
     });
   } catch (err) {
-    // If there is an error, return 500 status code and error message
-    res.status(500).json(err);
+    // Handle error if data retrieval fails
+    console.error('Error fetching post:', err);
+    res.status(500).json(err); // Return JSON error response or handle differently
   }
 });
 
@@ -63,14 +74,14 @@ router.get("/api/posts", async (req, res) => {
       title: post.title,
       createdAt: post.createdAt,
       user: {
-        username: post.User.username
+        username: post.User ? post.User.username : null, // Safeguard against undefined User
       }
     }));
 
     res.status(200).json({ posts }); // Ensure response is { posts: [...] }
-
   } catch (err) {
-    console.error(err);
+    // Handle error if data retrieval fails
+    console.error('Error fetching posts:', err);
     res.status(500).json({ error: 'Failed to fetch posts' });
   }
 });
@@ -79,8 +90,7 @@ router.get("/api/posts", async (req, res) => {
 router.get("/login", (req, res) => {
   // Redirect to dashboard if already logged in
   if (req.session.logged_in) {
-    res.redirect("/dashboard");
-    return;
+    return res.redirect("/dashboard");
   }
   res.render("login", { layout: "main" }); // Specify the layout file name here without extension
 });
@@ -89,8 +99,7 @@ router.get("/login", (req, res) => {
 router.get("/signup", (req, res) => {
   // Redirect to dashboard if already logged in
   if (req.session.logged_in) {
-    res.redirect("/dashboard");
-    return;
+    return res.redirect("/dashboard");
   }
   res.render("signup", { layout: "main" }); // Specify the layout file name here without extension
 });
@@ -120,8 +129,8 @@ router.get("/editPost/:id", withAuth, async (req, res) => {
     });
 
     if (!postData) {
-      res.status(404).json({ message: "No post found with this id!" });
-      return;
+      // Handle case where post is not found
+      return res.status(404).json({ message: "No post found with this id!" });
     }
 
     // Convert post data to plain JavaScript object
@@ -134,9 +143,9 @@ router.get("/editPost/:id", withAuth, async (req, res) => {
       logged_in: req.session.logged_in,
     });
   } catch (err) {
-    // If there is an error, return 500 status code and error message
-    console.log(err);
-    res.status(500).json(err);
+    // Handle error if data retrieval fails
+    console.error('Error fetching post for edit:', err);
+    res.status(500).json(err); // Return JSON error response or handle differently
   }
 });
 
@@ -155,7 +164,7 @@ router.get("/dashboard", withAuth, async (req, res) => {
       title: post.title,
       createdAt: post.createdAt,
       user: {
-        username: post.User.username,
+        username: post.User ? post.User.username : null, // Safeguard against undefined User
       },
     }));
 
@@ -166,12 +175,12 @@ router.get("/dashboard", withAuth, async (req, res) => {
       logged_in: req.session.logged_in,
     });
   } catch (err) {
-    // If there is an error, return 500 status code and error message
-    console.error(err);
+    // Handle error if data retrieval fails
+    console.error('Error fetching posts for dashboard:', err);
     res.status(500).json({ error: 'Failed to load dashboard' });
   }
 });
 
-
 // Export the router
 module.exports = router;
+

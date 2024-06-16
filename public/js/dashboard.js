@@ -55,5 +55,3 @@ const redirectToEditPost = (event) => {
 
 // Event listener
 document.querySelector('#postsContainer').addEventListener('click', redirectToEditPost);
-
-

@@ -1,0 +1,114 @@
+:root {
+    --cardColor: rgb(114, 61, 114);
+    --whiteColor: rgb(214, 214, 211);
+}
+
+
+.postCardComment {
+    border: 4px solid var(--cardColor);
+    background-color: var(--cardColor);
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    border-radius: 10px;
+}
+
+.titlePostCardComment {
+    background-color: var(--cardColor);
+    color: var(--whiteColor);
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+h3 {
+    width: 65%;
+    text-align: justify;
+}
+
+.userDataComment {
+    max-width: 30%;
+    text-align: end;
+    color: rgb(237, 197, 144);
+}
+
+h3, .userDataComment {
+    overflow-wrap: break-word; 
+}
+
+.postCardTextComment {
+    background-color: var(--whiteColor);
+    padding: 10px;
+    display: flex;
+    text-align: justify;
+    overflow-y: auto; /* Allow vertical scrolling within the card */
+    max-height: 200px;
+}
+
+#userCommentBox{
+    margin: 10px;
+}
+
+#commentText{
+    color: white;
+}
+
+textarea{
+    width: 100%;
+    resize: none;
+    height: 200px;
+    padding: 10px;
+}
+
+.btnsComments{
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+button{
+    cursor: pointer;
+    text-align: end;
+    border: 2px solid black;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: white;
+    width: fit-content;
+    transition: transform 0.1s;
+    transition: ease-in-out 0.2s;
+    margin-right: 10px;
+}
+
+button:hover{
+    padding-left: 9px;
+    padding-right: 9px;
+    background-color: var(--highlightColor);
+}
+
+button:active{
+    transform: scale(0.92);
+}
+
+#commentBtn:hover{
+    background-color: rgb(121, 194, 148);
+}
+
+#cancelBtn:hover{
+    background-color: rgb(121, 166, 194);
+}
+
+
+@media (max-width: 720px) {
+    .titlePostCardComment {
+        flex-direction: column;
+    }
+    h3, .userDataComment {
+        max-width: none;
+        text-align: center;
+    }
+    .postCardTextComment {
+        text-align: start; 
+    }
+  }

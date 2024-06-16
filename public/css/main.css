@@ -8,6 +8,13 @@
     --highlightColor: #d3b24e;
 }
 
+header{
+    position: fixed;
+    top: 0; /* Positions the header at the top of the viewport */
+    width: 100%; /* Ensures the header spans the full width of the viewport */
+}
+
+
 body {
     font-family: var(--fontPlex);
     background-color: var(--secondaryColor);

@@ -1,0 +1,32 @@
+<head>
+    <link rel="stylesheet" href="/css/post.css">
+</head>
+
+<body>
+
+    <div class="postCardComment">
+        <div class="titlePostCardComment">
+            <h3>{{title}}</h3>
+            <div class="titleSpace"></div>
+            <p class="userDataComment">by {{user.username}} on {{format_date createdAt}}</p>
+        </div>
+
+        <div class="postCardTextComment">
+            <p>{{content}}</p>
+        </div>
+
+        <div id="userCommentBox">
+            <p id="commentText">Comment</p>
+            <textarea></textarea>
+        </div>
+
+        <div class="btnsComments">
+            <button id="commentBtn">Comment</button>
+            <button id="cancelBtn">Cancel</button>
+        </div>
+
+    </div>
+
+    <!-- JavaScript link -->
+    <script src="/js/post.js"></script>
+</body>
