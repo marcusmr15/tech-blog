@@ -37,7 +37,7 @@ Comment.init(
         model: "post", // Reference the Post model
         key: "id", // Reference the id column in the Post model
       },
-    },
+    },    
   },
   {
     // Set sequelize instance, options for table name and underscored naming, and model name
