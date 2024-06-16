@@ -6,22 +6,24 @@ const withAuth = require("../utils/auth");
 // Route to render homepage
 router.get("/", async (req, res) => {
   try {
-    // Find all posts with associated usernames
     const postData = await Post.findAll({
-      include: [{ model: User, attributes: ["username"] }],
+      include: [
+        { model: User, attributes: ["username"] },
+        {
+          model: Comment,
+          include: [{ model: User, attributes: ["username"] }],
+        },
+      ],
     });
-    
-    // Convert post data to plain JavaScript object
+
     const posts = postData.map((post) => post.get({ plain: true }));
-    
-    // Render homepage template with posts and login status
-    res.render('homePage', {
-      layout: 'main', 
+
+    res.render("homePage", {
+      layout: "main",
       posts,
       logged_in: req.session.logged_in,
     });
   } catch (err) {
-    // Handle error if data retrieval fails
     console.error('Error fetching posts:', err);
     res.status(500).json(err); // Return JSON error response or handle differently
   }
@@ -54,6 +56,7 @@ router.get("/post/:id", withAuth, async (req, res) => {
       layout: "main", // Specify the layout file name here without extension
       ...post,
       logged_in: req.session.logged_in,
+      postId: req.params.id, // Pass the postId to the template
     });
   } catch (err) {
     // Handle error if data retrieval fails
@@ -183,4 +186,3 @@ router.get("/dashboard", withAuth, async (req, res) => {
 
 // Export the router
 module.exports = router;
-

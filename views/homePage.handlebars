@@ -3,37 +3,39 @@
 </head>
 
 <body>
+
     {{#each posts}}
-
-        <div class="postCard">
-            <div class="titlePostCard">
-                <h3>{{title}}</h3>
-                <div class="titleSpace"></div>
-                <p class="userData">by {{user.username}} on {{format_date createdAt}}</p>
-            </div>
-            <div class="postCardText">
-                <p>{{content}}</p>
-            </div>
-            {{#each comments}}
-
-                <div class="postCardCommentsBox">
-                    <div class="postCardComments">
-                        <p>{{user.username}} on {{format_date createdAt}}</p>
-                        <p><i>{{comment_text}}</i></p>
-                    </div>
-                </div>
-            {{/each}}
-
-            
-            <div id="addCommentBtnBox">
-                <div class="homeSpace"></div>
-                <p id="addCommentBt">Add Comment +</p>
-            </div>
+    <div class="postCard">
+        <div class="titlePostCard">
+        <h3>{{title}}</h3>
+        <div class="titleSpace"></div>
+        <p class="userData">by {{user.username}} on {{format_date createdAt}}</p>
         </div>
+        <div class="postCardText">
+        <p>{{content}}</p>
+        </div>
+        {{!-- {{#each comments}} --}}
+        <div class="postCardCommentsBox">
+            {{#each comments}}
+            <div class="postCardComments">
+            <p>{{user.username}} on {{format_date createdAt}}</p>
+            <p><i>{{comment_text}}</i></p>
+            </div>
+            {{/each}}
+        </div>
+
+        <div id="addCommentBtnBox">
+        <div class="homeSpace"></div>
+        <button data-postid="{{id}}" class="addCommentBtn">Add Comment +</button>
+        </div>
+    </div>
     {{/each}}
 
 
     <!--! JavaScript link -->
     <script src="/js/homePage.js"></script>
 </body>
-    
+
+
+
+

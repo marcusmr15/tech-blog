@@ -48,10 +48,10 @@ h3, .userData {
 }
 
 .postCardCommentsBox{
-    overflow-y: auto; /* Allow vertical scrolling within the card */
+    overflow-y: auto;
     max-height: 200px;
-
 }
+
 
 .postCardComments{
     padding: 5px;
@@ -60,6 +60,8 @@ h3, .userData {
     margin-left: 15%;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
+    overflow-y: auto;
+    max-height: 200px;
 }
 
 #addCommentBtnBox{
@@ -70,7 +72,7 @@ h3, .userData {
     width: 10px;
 }
 
-#addCommentBt{
+button{
     cursor: pointer;
     text-align: end;
     border: 2px solid black;
@@ -82,13 +84,13 @@ h3, .userData {
     transition: ease-in-out 0.2s;
 }
 
-#addCommentBt:hover{
+button:hover{
     padding-left: 9px;
     padding-right: 9px;
     background-color: var(--highlightColor);
 }
 
-#addCommentBt:active{
+button:active{
     transform: scale(0.92);
 }
 
