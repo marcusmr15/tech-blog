@@ -30,12 +30,12 @@ const signupFormHandler = async (event) => {
     }
   };
   
-  // Function to handle redirect to login page
-  const redirectToLogin = () => {
-    document.location.replace('/login');
-  };
-  
-  // Event listeners
-  document.querySelector('#signupBtn').addEventListener('click', signupFormHandler);
-  document.querySelector('#loginIns').addEventListener('click', redirectToLogin);
+// Function to handle redirect to login page
+const redirectToLogin = () => {
+  document.location.replace('/login');
+};
+
+// Event listeners
+document.querySelector('#signupBtn').addEventListener('click', signupFormHandler);
+document.querySelector('#loginIns').addEventListener('click', redirectToLogin);
   

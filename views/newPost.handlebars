@@ -10,15 +10,20 @@
             <div class="titleSpace"></div>
         </div>
         <div class="CreatePostText">
-            <p>Title</p>
-            <textarea></textarea>
-            <div class="cpSpace"></div>
-            <p>Content</p>
-            <textarea class="textareaContent"></textarea>
-            <button>+ Create</button>
+            <form id="newPostForm">
+                <p>Title</p>
+                <textarea id="postTitle"></textarea>
+                <div class="cpSpace"></div>
+                <p>Content</p>
+                <textarea id="postContent" class="textareaContent"></textarea>
+                <div id="createBtnBox">
+                    <button id="createBtn">+ Create</button>
+                    <button id="cancelBtn">Cancel</button>
+                </div>
+            </form>
         </div>
     </div>
 
-    <!--! JavaScript link -->
+    <!-- JavaScript link -->
     <script src="/js/newPost.js"></script>
 </body>
