@@ -51,25 +51,27 @@ router.get("/post/:id", withAuth, async (req, res) => {
   }
 });
 
-// Route to render dashboard page with all posts by current user
-router.get("/dashboard", withAuth, async (req, res) => {
+// Route to get all posts with associated usernames as JSON
+router.get("/api/posts", async (req, res) => {
   try {
-    // Find all posts by current user with associated usernames
     const postData = await Post.findAll({
-      where: { user_id: req.session.user_id },
       include: [{ model: User, attributes: ["username"] }],
     });
-    // Convert post data to plain JavaScript object
-    const posts = postData.map((post) => post.get({ plain: true }));
-    // Render dashboard template with posts and login status
-    res.render("dashboard", {
-      layout: "main", // Specify the layout file name here without extension
-      posts,
-      logged_in: req.session.logged_in,
-    });
+
+    const posts = postData.map(post => ({
+      id: post.id,
+      title: post.title,
+      createdAt: post.createdAt,
+      user: {
+        username: post.User.username
+      }
+    }));
+
+    res.status(200).json({ posts }); // Ensure response is { posts: [...] }
+
   } catch (err) {
-    // If there is an error, return 500 status code and error message
-    res.status(500).json(err);
+    console.error(err);
+    res.status(500).json({ error: 'Failed to fetch posts' });
   }
 });
 
@@ -138,6 +140,38 @@ router.get("/editPost/:id", withAuth, async (req, res) => {
   }
 });
 
+// Route to render the dashboard page
+router.get("/dashboard", withAuth, async (req, res) => {
+  try {
+    // Fetch all posts with associated usernames
+    const postData = await Post.findAll({
+      include: [{ model: User, attributes: ["username"] }],
+      order: [['createdAt', 'DESC']], // Optional: Order posts by createdAt descending
+    });
+
+    // Convert post data to plain JavaScript object
+    const posts = postData.map(post => ({
+      id: post.id,
+      title: post.title,
+      createdAt: post.createdAt,
+      user: {
+        username: post.User.username,
+      },
+    }));
+
+    // Render the dashboard template with posts and login status
+    res.render("dashboard", {
+      layout: "main", // Specify the layout file name here without extension
+      posts,
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    // If there is an error, return 500 status code and error message
+    console.error(err);
+    res.status(500).json({ error: 'Failed to load dashboard' });
+  }
+});
+
+
 // Export the router
 module.exports = router;
-

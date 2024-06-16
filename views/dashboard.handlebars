@@ -5,15 +5,16 @@
 <body>
     <p class="dashboardTitle">{{user.username}}'s Posts</p>
     
-    {{#each posts}}
+    <div id="postsContainer">
+        {{#each posts}}
+            <div class="userDashboards" data-id="{{id}}">
+                <h3>{{title}}</h3>
+                <p class="dateDashboard">{{format_date createdAt}}</p>
+            </div>
+        {{/each}}
+    </div>
 
-        <div class="userDashboards">
-            <h3>{{title}}</h3>
-            <p class="dateDashboard">{{format_date createdAt}}</p>
-        </div>
-
-    {{/each}}
-
-    <!--! JavaScript link -->
+    <!-- JavaScript link -->
     <script src="/js/dashboard.js"></script>
 </body>
+

@@ -1,4 +1,4 @@
-<head>
+{{!-- <head>
     <link rel="stylesheet" href="/css/editPost.css">
 </head>
 
@@ -24,5 +24,35 @@
     </div>
 
     <!--! JavaScript link -->
+    <script src="/js/editPost.js"></script>
+</body> --}}
+
+
+
+<head>
+    <link rel="stylesheet" href="/css/editPost.css">
+</head>
+
+<body>
+    <div class="editPostCard">
+        <div class="titleEditPost">
+            <h3>Edit Post</h3>
+            <div class="titleSpace"></div>
+        </div>
+        <div class="editPostText">
+            <p>Title</p>
+            <textarea name="title">{{title}}</textarea>
+            <div class="epSpace"></div>
+            <p>Content</p>
+            <textarea name="content" class="EditTextareaContent">{{content}}</textarea>
+            <div class="buttons">
+                <button id="updateBtn">Update</button>
+                <button id="deleteBtn">Delete</button>
+                <button id="cancelBtn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript link -->
     <script src="/js/editPost.js"></script>
 </body>
