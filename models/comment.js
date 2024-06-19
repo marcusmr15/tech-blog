@@ -16,12 +16,12 @@ Comment.init(
       autoIncrement: true,
     },
     comment_text: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(2000), // Example: Set maximum length to 1000 characters
       allowNull: false,
       validate: {
         len: [1], // Validate that the comment_text length is at least 1 character
       },
-    },
+    },    
     user_id: {
       type: DataTypes.INTEGER,
       allowNull: false,

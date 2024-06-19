@@ -3,17 +3,20 @@ const router = require("express").Router();
 const { Post, User, Comment } = require("../../models");
 const withAuth = require("../../utils/auth"); // Import authentication middleware
 
-// Route to get all posts with associated usernames
-router.get("/", async (req, res) => {
+// Route to get all posts for the logged-in user
+router.get("/", withAuth, async (req, res) => {
   try {
-    // Find all posts with associated usernames
+    console.log(`Fetching posts for user_id: ${req.session.user_id}`); // Debug log
+
     const postData = await Post.findAll({
+      where: { user_id: req.session.user_id },
       include: [{ model: User, attributes: ["username"] }],
     });
-    // Send a response with the post data
+
+    console.log(postData); // Debug log
+
     res.status(200).json(postData);
   } catch (err) {
-    // Send an error response if something went wrong
     res.status(500).json(err);
   }
 });
@@ -65,11 +68,11 @@ router.put("/:id", withAuth, async (req, res) => {
   try {
     // Update the post with the provided data
     const updatedPost = await Post.update(req.body, {
-      where: { id: req.params.id }, // Update the post with matching id
+      where: { id: req.params.id, user_id: req.session.user_id }, // Ensure the post belongs to the logged-in user
     });
 
     // If post not found, send a 404 response
-    if (!updatedPost) {
+    if (!updatedPost[0]) {
       res.status(404).json({ message: "No post found with that id!" });
       return;
     }
@@ -84,14 +87,9 @@ router.put("/:id", withAuth, async (req, res) => {
 // Route to delete a post with authenticated user
 router.delete("/:id", withAuth, async (req, res) => {
   try {
-    // Delete all comments related to the post
-    await Comment.destroy({
-      where: { post_id: req.params.id },
-    });
-
-    // Delete the post with the provided id
+    // Delete the post with the provided id and ensure it belongs to the logged-in user
     const deletedPost = await Post.destroy({
-      where: { id: req.params.id },
+      where: { id: req.params.id, user_id: req.session.user_id },
     });
 
     // If post not found, send a 404 response
@@ -109,3 +107,4 @@ router.delete("/:id", withAuth, async (req, res) => {
 
 // Export the router
 module.exports = router;
+

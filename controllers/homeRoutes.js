@@ -155,8 +155,9 @@ router.get("/editPost/:id", withAuth, async (req, res) => {
 // Route to render the dashboard page
 router.get("/dashboard", withAuth, async (req, res) => {
   try {
-    // Fetch all posts with associated usernames
+    // Fetch all posts with associated usernames for the logged-in user
     const postData = await Post.findAll({
+      where: { user_id: req.session.user_id }, // Filter posts by user_id from session
       include: [{ model: User, attributes: ["username"] }],
       order: [['createdAt', 'DESC']], // Optional: Order posts by createdAt descending
     });
@@ -182,6 +183,14 @@ router.get("/dashboard", withAuth, async (req, res) => {
     console.error('Error fetching posts for dashboard:', err);
     res.status(500).json({ error: 'Failed to load dashboard' });
   }
+});
+
+// Route to check session data
+router.get("/check-session", (req, res) => {
+  res.json({
+    user_id: req.session.user_id,
+    logged_in: req.session.logged_in,
+  });
 });
 
 // Export the router

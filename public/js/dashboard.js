@@ -12,13 +12,13 @@ const fetchPosts = async () => {
       throw new Error('Failed to fetch posts');
     }
 
-    const responseData = await response.json();
+    const posts = await response.json();
 
-    if (!responseData || !responseData.posts || !Array.isArray(responseData.posts)) {
+    console.log(posts); // Debug log
+
+    if (!Array.isArray(posts)) {
       throw new Error('Invalid response data format');
     }
-
-    const posts = responseData.posts;
 
     const postsContainer = document.getElementById('postsContainer');
     if (!postsContainer) {
@@ -40,6 +40,14 @@ const fetchPosts = async () => {
       postsContainer.appendChild(postElement);
     });
 
+    // Toggle display of noPostsMessage based on posts length
+    const noPostsMessage = document.getElementById('noPostsMessage');
+    if (posts.length === 0) {
+      noPostsMessage.classList.remove('hideNoPostsM');
+    } else {
+      noPostsMessage.classList.add('hideNoPostsM');
+    }
+
   } catch (err) {
     console.error('Error fetching posts:', err.message);
   }
@@ -47,11 +55,15 @@ const fetchPosts = async () => {
 
 // Function to handle redirect to editPost page
 const redirectToEditPost = (event) => {
-  if (event.target.matches('.userDashboards')) {
-    const postId = event.target.dataset.id;
+  const postElement = event.target.closest('.userDashboards');
+  if (postElement) {
+    const postId = postElement.dataset.id;
     document.location.replace(`/editPost/${postId}`);
   }
 };
 
 // Event listener
 document.querySelector('#postsContainer').addEventListener('click', redirectToEditPost);
+
+// Call fetchPosts to load posts when the page loads
+fetchPosts();

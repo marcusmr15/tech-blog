@@ -3,7 +3,7 @@
 </head>
 
 <body>
-    <p class="dashboardTitle">Your Posts</p>
+    <p class="dashboardTitle">{{user.username}}Your Posts 📮 </p>
     
     <div id="postsContainer">
         {{#each posts}}
@@ -12,6 +12,11 @@
                 <p class="dateDashboard">{{format_date createdAt}}</p>
             </div>
         {{/each}}
+    </div>
+
+    <div id="noPostsMessage" class="hideNoPostsM">
+        <p>😞 Nothing here...</p>
+        <p>Click the '<u>New Post+</u>' button to create a post!</p>
     </div>
 
     <!-- JavaScript link -->

@@ -1,7 +1,7 @@
 // Function to handle comment submission
 const handleCommentSubmit = async () => {
     const commentText = document.querySelector('textarea').value.trim();
-    const postId = document.querySelector('#postId').value; // Fetch postId from HTML
+    const postId = document.querySelector('#postId').value;
 
     try {
         if (commentText) {
